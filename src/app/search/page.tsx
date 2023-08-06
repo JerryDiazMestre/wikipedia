@@ -12,13 +12,11 @@ type Props = {
 }
 
 export default async function search({searchParams }:Props) {
-  console.log(searchParams.q);
   const wiki =  await getResults(searchParams.q);
-  console.log({wiki:wiki.search});
+
   return (
     <>
       <Header />
-      {/* {wiki.query.search[0].title} */}
       <ul>
         {wiki.query.search.map(({title, pageid, snippet}, index) => 
             <li key={index}> 
